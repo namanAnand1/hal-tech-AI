@@ -1,0 +1,60 @@
+agent that allows me to trade stocks using natural language input
+connecting it LLM 
+and trading stocks using ALPACA 
+
+(theoretical input can be hey i wanna buy an apple stocks at 200 dollars a share)
+(response from the system , processing --> simultaneously, backend should be sending the request after processing)
+(validate the information completely during the processing the information) 
+the actual system side--> backend should be basic ,along with the reactapp , if there is a successful paper trading request. 
+
+Tools--> 
+IDE , vscode, cursor (autocompletion), login accounts for GPT, documentation for alpaca is present   
+
+
+user input --->(validation on top of the auth layer)
+large language model     (interupts due to incomplete prompt)=>(frontend)       ---->          backend----> alpaca request ----> backend ---->sent to frontend as a response
+-----------> n types of user actions 
+             1. sell_shares/buy_shares action
+                 {
+                   creds:
+                   language input: output--> quantity details, proposed price (optional), what exactly do we wanna buy/sell
+                   }
+             2. know the share price
+                {
+                  language input: output --> what shares do you wanna trade (to get the quoted price of those shares)
+                  }
+             
+  language input processed--->{action-object}
+  incase of action object not containing required data (means quantity , or type or anything valueable) return a response here only
+
+
+alpaca request
+
+here ammend the parts of action-object into the request, some keys and unique ids or secret keys(+what the users want to do along with required data)
+LLM part ---> 
+
+first thing is when we receive the string, we expect 3 things out of it
+0. regular expression,-->keywords , such as buy,sell,trade,prices,quantity
+tools calls usage---1.if buy/sell, quantity, price, identity.
+---2.if knowing status, identity.
+3.status of the shares brought () // a feature to be added , not primary
+
+make a function, to pass the string through an LLM / make a request to an llm using a function
+1.if buy/sell, quantity, price, identity.
+2.if knowing status, identity.
+on the basis of the result of the function, we will first validate the action (knowing requires idetity,buying requires  quantity, price, identity.)
+
+converted into an object which will contain the action and corresponding data
+
+
+the model can be provided with tool calls, json structures, 
+
+unstructured input
+
+
+
+
+
+
+
+
