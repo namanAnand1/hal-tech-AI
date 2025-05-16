@@ -1,0 +1,11 @@
+Flask
+flask-cors
+openai
+python-dotenv
+alpaca-py 
+pytest 
+pytest-flask 
+requests-mock
+# flask-bcrypt
+# flask-jwt-extended
+# flask-sqlalchemy
